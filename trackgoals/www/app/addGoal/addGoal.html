@@ -1,0 +1,46 @@
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <h4 class="header center orange-text">Hi {{user?.id}}</h4>
+        <h5 class="header center orange-text">Add New Goal</h5>
+        <h6 class="header center orange-text">Great start is a half win...</h6>
+        <div class="row center">
+            <form class="col s12 m8 offset-m2" (submit)="addNewGoal()">
+                <div class="row">
+                    <div class="input-field col s12 m8 offset-m2">
+                        <input id="goalName" type="text" [(ngModel)]="goalName" class="validate" required="" aria-required="true">
+                        <label for="goalName" data-error="wrong">Goal Name</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label for="hasStartDate">Has Start Date?</label>
+                </div>
+                <!-- Switch -->
+                <div class="switch">
+                    <label id="hasStartDate">
+                        No
+                        <input type="checkbox" [(ngModel)]="hasStartDate">
+                        <span class="lever"></span> Yes
+                    </label>
+                </div>
+
+                <div class="row" [hidden]="!hasStartDate">
+                    <div class="input-field col s12 m8 offset-m2">
+                        <label for="goalName" data-error="wrong">Goal Start Date</label>
+                        <input type="date" class="datepicker" id="startDatePicker" [(ngModel)]="startDate">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m8 offset-m2">
+                        <label for="goalName" data-error="wrong">Goal End Date</label>
+                        <input type="date" class="datepicker" id="endDatePicker" [(ngModel)]="endDate">
+                    </div>
+                </div>
+                <div class="row center">
+                    <button type="submit" id="download-button" class="btn-large waves-effect waves-light orange">Add New Goal</button>
+                    <a [routerLink]="['/Dashboard']" class="btn-large waves-effect waves-light orange">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

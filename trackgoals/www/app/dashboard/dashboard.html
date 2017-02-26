@@ -1,0 +1,28 @@
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <h5 class="header center orange-text">Hi {{user?.id}}</h5>
+        <h6 class="header center orange-text">Every day you reach one step closer to your goal...Keep going</h6>
+        <h6 class="header center orange-text">Keep going...</h6>
+        <div class="row center">
+            <br>
+            <br>
+            <div class="row center">
+                <a [routerLink]="['/AddGoal']" id="download-button" class="btn-large waves-effect waves-light orange">Add New Goal</a>
+            </div>
+            <ul class="collection with-header">
+                <li class="collection-header">
+                    <h4>Goals</h4></li>
+                <li class="collection-item" *ngFor="#goal of user.goals">
+                    <h4>{{goal.name}}</h4>
+                    <h4>{{goal.endDate | daysLeft}} days to go</h4>
+                    <h5>End Date: {{goal.endDate}}</h5>
+                </li>
+
+            </ul>
+        </div>
+        <div class="row center">
+            <button (click)="deleteAllGoals()" class="btn-large waves-effect waves-light orange">Delete All Goals</button>
+            <button [routerLink]="['/Login']" class="btn-large waves-effect waves-light orange">Logout</button>
+        </div>
+    </div>
+</div>
